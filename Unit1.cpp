@@ -28,9 +28,9 @@ int main(int argc, char* argv[])
     printf("\nAnswer is: %d \n\n\n", answer);
 
     printf("press 1 to close aoolication");
-    int close;
+    char ch[20];
 
-    scanf("%d", close);
+    gets(ch);
 
 
 
