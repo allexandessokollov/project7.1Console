@@ -13,7 +13,7 @@
 int countAnsewer(std::string str);
 
 
-int main(int argc, char* argv[])
+int main()
 {
     std::string str;
     int answer;
@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 
     printf("\nAnswer is: %d \n\n\n", answer);
 
-    printf("press 1 to close aoolication");
+    printf("Enter 1 to close aoolication");
     char ch[20];
 
     gets(ch);
