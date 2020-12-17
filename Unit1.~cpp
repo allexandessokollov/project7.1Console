@@ -10,63 +10,58 @@
 #include <stdlib.h>
 #pragma argsused
 
-int countAnsewer(std::string str);
+const int MAX_STRING_SIZE = 512;
 
+int findQuant(char chArr[]);
 
 int main(int argc, char* argv[])
 {
-    std::string str;
     int answer;
-    char chArr[256];
+    char chArr[MAX_STRING_SIZE];
 
     printf("Enter your string\n");
 
     gets(chArr);
 
-    answer = countAnsewer(chArr);
+    answer = findQuant(chArr);
 
-    printf("\nAnswer is: %d \n\n\n", answer);
+    printf("\nAnswer is: %d ", answer);
 
-    printf("Enter 1 to close aoolication");
-    int close;
-
-    scanf("%d", close);
-
-
+    puts("\n\n\nPress any key ... ");
+    getch();
+    getch();
 
     return 0;
 }
 //---------------------------------------------------------------------------
-int countAnsewer(std::string str)
+int findQuant(char chArr[])
 {
-
-    str += " ";
-
-    const char *chArr = str.c_str();
-
-    int counter = 0, tmpCounter = 0, strLength = strlen(chArr);
-
-
-    
+    int counter = 0, lengthOfgroup = 0, strLength = strlen(chArr),
+    expectedGroupLength = 5;
 
     for(int i = 0; i < strLength; i++)
     {
 
         if(chArr[i] == '1' || chArr[i] == '0')
         {
-            tmpCounter++;
-        }
-        else if(chArr[i] == ' ')
-        {
-            if(tmpCounter == 5)
-            {
-                counter++;
-            }
-            tmpCounter = 0;
+            lengthOfgroup++;
         }
         else
         {
-            printf("\n\nunexpected symbol!\n\n");
+            if(lengthOfgroup == expectedGroupLength)
+            {
+                counter++;
+            }
+            lengthOfgroup = 0;
+        }
+
+        if(i == strLength - 1)
+        {
+            if(lengthOfgroup == expectedGroupLength)
+            {
+                counter++;
+            }
+            lengthOfgroup = 0;
         }
     }
 
