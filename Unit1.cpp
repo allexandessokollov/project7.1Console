@@ -14,7 +14,7 @@ const int MAX_STRING_SIZE = 512;
 
 int findQuantOfSequences(char chArr[]);
 
-int main(int argc, char* argv[])
+int main()
 {
     int answer;
     char chArr[MAX_STRING_SIZE];
@@ -23,7 +23,18 @@ int main(int argc, char* argv[])
 
     gets(chArr);
 
+<<<<<<< HEAD
     answer = findQuantOfSequences(chArr);
+=======
+    answer = countAnsewer(chArr);
+
+    printf("\nAnswer is: %d \n\n\n", answer);
+
+    printf("Enter 1 to close aoolication");
+    char ch[20];
+
+    gets(ch);
+>>>>>>> b8d03ad4038bfda51027fa0f31534ce4d9018209
 
     printf("\nAnswer is: %d ", answer);
 
