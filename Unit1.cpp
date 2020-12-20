@@ -2,15 +2,14 @@
 
 #pragma hdrstop
 //--------------------------------------------------------------------------
-#include <string.h>
-#include <string>
+
 #include <iostream.h>
 #include <stdio.h>
 #include <conio.h>
-#include <stdlib.h>
 #pragma argsused
 
 const int MAX_STRING_SIZE = 512;
+const int EXPECTED_GROUP_LEN = 5 ;
 
 int findQuantOfSequences(char chArr[]);
 
@@ -23,10 +22,7 @@ int main()
 
     gets(chArr);
 
-
     answer = findQuantOfSequences(chArr);
-
-
 
     printf("\nAnswer is: %d ", answer);
 
@@ -40,8 +36,8 @@ int main()
 int findQuantOfSequences(char chArr[])
 {
     int counter = 0, lengthOfgroup = 0,
-    strLength = strlen(chArr),
-    expectedGroupLength = 5;
+    strLength = strlen(chArr);
+
 
     for(int i = 0; i < strLength; i++)
     {
@@ -52,21 +48,18 @@ int findQuantOfSequences(char chArr[])
         }
         else
         {
-            if(lengthOfgroup == expectedGroupLength)
+            if(lengthOfgroup == EXPECTED_GROUP_LEN)
             {
                 counter++;
             }
             lengthOfgroup = 0;
         }
 
-        if(i == strLength - 1)
-        {
-            if(lengthOfgroup == expectedGroupLength)
-            {
-                counter++;
-            }
-            lengthOfgroup = 0;
-        }
+    }
+
+    if(lengthOfgroup == EXPECTED_GROUP_LEN)
+    {
+         counter++;
     }
 
     return counter;

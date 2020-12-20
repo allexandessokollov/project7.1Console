@@ -2,19 +2,18 @@
 
 #pragma hdrstop
 //--------------------------------------------------------------------------
-#include <string.h>
-#include <string>
+
 #include <iostream.h>
 #include <stdio.h>
 #include <conio.h>
-#include <stdlib.h>
 #pragma argsused
 
 const int MAX_STRING_SIZE = 512;
+const int EXPECTED_GROUP_LEN = 5 ;
 
-int findQuant(char chArr[]);
+int findQuantOfSequences(char chArr[]);
 
-int main(int argc, char* argv[])
+int main()
 {
     int answer;
     char chArr[MAX_STRING_SIZE];
@@ -23,7 +22,7 @@ int main(int argc, char* argv[])
 
     gets(chArr);
 
-    answer = findQuant(chArr);
+    answer = findQuantOfSequences(chArr);
 
     printf("\nAnswer is: %d ", answer);
 
@@ -34,10 +33,11 @@ int main(int argc, char* argv[])
     return 0;
 }
 //---------------------------------------------------------------------------
-int findQuant(char chArr[])
+int findQuantOfSequences(char chArr[])
 {
-    int counter = 0, lengthOfgroup = 0, strLength = strlen(chArr),
-    expectedGroupLength = 5;
+    int counter = 0, lengthOfgroup = 0,
+    strLength = strlen(chArr);
+
 
     for(int i = 0; i < strLength; i++)
     {
@@ -48,7 +48,7 @@ int findQuant(char chArr[])
         }
         else
         {
-            if(lengthOfgroup == expectedGroupLength)
+            if(lengthOfgroup == EXPECTED_GROUP_LEN)
             {
                 counter++;
             }
@@ -57,7 +57,7 @@ int findQuant(char chArr[])
 
         if(i == strLength - 1)
         {
-            if(lengthOfgroup == expectedGroupLength)
+            if(lengthOfgroup == EXPECTED_GROUP_LEN)
             {
                 counter++;
             }
